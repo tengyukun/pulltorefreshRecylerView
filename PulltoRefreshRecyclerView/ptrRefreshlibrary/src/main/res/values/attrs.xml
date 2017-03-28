@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PtrRecyclerView">
+        <attr name="number_load_more" format="integer"/>
+        <attr name="emply_layout" format="reference"/>
+    </declare-styleable>
+
+</resources>

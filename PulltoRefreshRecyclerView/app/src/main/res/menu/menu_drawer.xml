@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<group android:checkableBehavior="single">-->
+        <!--<item-->
+            <!--android:id="@+id/nav_blog"-->
+            <!--android:title="我的博客"-->
+            <!--android:checked="true"/>-->
+        <!--<item-->
+            <!--android:id="@+id/nav_about"-->
+            <!--android:title="关于我" />-->
+
+        <!--<item-->
+            <!--android:id="@+id/nav_version"-->
+            <!--android:title="版本信息" />-->
+    <!--</group>-->
+
+    <item
+        android:id="@+id/nav_blog"
+        android:title="我的博客"
+        android:checked="true"/>
+    <item
+        android:id="@+id/nav_about"
+        android:title="关于我" />
+
+    <item
+        android:id="@+id/nav_version"
+        android:title="版本信息" />
+
+    <item
+        android:id="@+id/nav_userinfo"
+        android:title="个人信息"/>
+
+    <item android:title="Sub Title">
+        <menu>
+            <item
+                android:id="@+id/nav_sub1"
+                android:title="副标题1"
+                android:checkable="true"/>
+            <item
+                android:id="@+id/nav_sub2"
+                android:title="副标题2"/>
+        </menu>
+    </item>
+</menu>
