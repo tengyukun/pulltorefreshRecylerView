@@ -4,7 +4,7 @@
 
 ## Material Design控件使用
 
-前几天转载了zly921112的两篇Material Design控件使用的文章，这里就不多做叙述，下面是传送门，想要学习的小伙伴可以去看下：
+前几天转载了两篇Material Design控件使用的文章，这里就不多做叙述，下面是传送门，想要学习的小伙伴可以去看下：
 
 
 https://juejin.im/entry/58d8d4d344d90400687c134d/detail#comment
