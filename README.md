@@ -1,7 +1,5 @@
-# pulltorefreshRecylerView
 
-## 下拉刷新上拉加载控件+Material Design使用+FlexboxLayout
-
+# 下拉刷新上拉加载控件+Material Design使用+FlexboxLayout
 
 
 ## Material Design控件使用
@@ -18,7 +16,7 @@ https://juejin.im/entry/58d9cdf044d9040068813c2d/detail#comment
 https://juejin.im/post/58d1035161ff4b00603ca9c4
 
 
-
+## pulltorefreshRecylerView
 ## 下拉刷新上拉加载控件
 
 ### 描述
