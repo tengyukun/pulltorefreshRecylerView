@@ -3,12 +3,14 @@ package com.pulltorefresh.tyk.library;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewStub;
+import android.widget.AbsListView;
 import android.widget.FrameLayout;
 
 import com.pulltorefresh.tyk.library.adapter.CommonAdapter;
@@ -57,6 +59,9 @@ public class PtrRecyclerView extends FrameLayout {
     private View mEmptyView;
     private ViewStub mStubEmpty;
     private int mEmptyRes;
+
+    //2017年4月10日 添加是否滑动到底部
+    private boolean isBottom=false;
 
     public PtrRecyclerView(Context context) {
         this(context, null);
@@ -137,6 +142,7 @@ public class PtrRecyclerView extends FrameLayout {
 
 
     private void initRecyclerView() {
+
         mRecyclerView.addOnScrollListener(new ReviseMoveListener());
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -154,11 +160,37 @@ public class PtrRecyclerView extends FrameLayout {
                     }
                 }
 
-            }
+                //2017年4月10日 添加判断是否滑动到底部
+                LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                if (dy > 0) //向下滚动
+                {
+                    int visibleItemCount = manager.getChildCount();
+                    int totalItemCount = manager.getItemCount();
+                    int pastVisiblesItems = manager.findFirstVisibleItemPosition();
 
+                    Log.e("visibleItemCount",visibleItemCount+"");
+                    Log.e("totalItemCount",totalItemCount+"");
+                    Log.e("pastVisiblesItems",pastVisiblesItems+"");
+                    if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
+                        isBottom=true;
+                    }else{
+                        isBottom=false;
+                    }
+                }
+            }
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+                //2017年4月10日 根据是否滑动到底部判断是都显示footer
+                if (newState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+                    //是否显示底部加载进度
+                    if (isBottom) {
+                        showFooterView();
+                    }else{
+                        hideFooterView();
+                    }
+                }
+
             }
         });
     }
@@ -221,6 +253,8 @@ public class PtrRecyclerView extends FrameLayout {
         });
 
         addFooter();
+        //2017年4月10日 默认不显示底部footer
+        hideFooterView();
     }
 
     public void showEmptyView() {
@@ -233,9 +267,19 @@ public class PtrRecyclerView extends FrameLayout {
         mStubEmpty.setVisibility(View.GONE);
     }
 
+
+    public void showFooterView(){
+        mFooterView.setVisibility(View.VISIBLE);
+    }
+
+    public void hideFooterView(){
+        mFooterView.setVisibility(View.GONE);
+    }
+
+
     public void setFooterView(View footerView) {
         if (!(footerView instanceof PtrLoadUIHandle)) {
-            throw new RuntimeException("footerView 必须实现ErvLoadUIHandler");
+            throw new RuntimeException("footerView 必须实现PtrLoadUIHandler");
         }
         this.mFooterView = footerView;
         this.mLoadUIHandler = (PtrLoadUIHandle) footerView;
