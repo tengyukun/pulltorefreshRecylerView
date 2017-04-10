@@ -11,6 +11,13 @@ https://juejin.im/entry/58d8d4d344d90400687c134d/detail#comment
 https://juejin.im/entry/58d9cdf044d9040068813c2d/detail#comment
 
 
+---------------------------------------------------------------------------------------------------------------
+#### 更新：依赖库已更新，如果想使用最新版的小伙伴做下修改
+#### 1.当列表只有一页数据的时候，底部的 footer 加载中无法隐藏；
+#### 2.添加隐藏/显示底部footer方法（具体在下文）
+---------------------------------------------------------------------------------------------------------------
+
+
 ## FlexboxLayout使用
 前几天在掘金上看到依然饭特稀西大神写的[Android可伸缩布局－FlexboxLayout(支持RecyclerView集成)](https://juejin.im/post/58d1035161ff4b00603ca9c4)，试了一下，很是好用啊，这里也不做叙述，下面的传送门，想学习的小伙伴可以去看一下。
 https://juejin.im/post/58d1035161ff4b00603ca9c4
@@ -52,10 +59,12 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
 			maven { url 'https://jitpack.io' }
 		}
 	}
-#### Step 2. 在module中添加compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.0'	
+#### Step 2. 在module中添加compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.1'	
 	
 	dependencies {
-	        compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.0'
+	        //compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.0'
+	        //更新解决当列表只有一页数据的时候，底部的 footer 加载中无法隐藏
+	        compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.1'
 	}
 	
 	
@@ -92,6 +101,12 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
 
 		erv_fragmentthree_content.hideEmptyView();
 		erv_fragmentthree_content.showEmptyView();
+		
+* （更新）隐藏/显示底部footer
+
+    		erv_fragmentthree_content.hideFooterView();
+		erv_fragmentthree_content.showFooterView();
+		
 		
 
 * 刷新设置
