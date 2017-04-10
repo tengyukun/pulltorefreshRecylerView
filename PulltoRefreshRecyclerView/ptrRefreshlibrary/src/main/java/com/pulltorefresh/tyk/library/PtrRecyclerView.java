@@ -269,11 +269,15 @@ public class PtrRecyclerView extends FrameLayout {
 
 
     public void showFooterView(){
-        mFooterView.setVisibility(View.VISIBLE);
+        if (mFooterView!=null){
+            mFooterView.setVisibility(View.VISIBLE);
+        }
     }
 
     public void hideFooterView(){
-        mFooterView.setVisibility(View.GONE);
+        if (mFooterView!=null){
+            mFooterView.setVisibility(View.GONE);
+        }
     }
 
 
