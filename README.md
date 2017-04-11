@@ -66,12 +66,14 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
 			maven { url 'https://jitpack.io' }
 		}
 	}
-#### Step 2. 在module中添加compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.1'	
+#### Step 2. 在module中添加compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.2'	
 	
 	dependencies {
 	        //compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.0'
 	        //更新解决当列表只有一页数据的时候，底部的 footer 加载中无法隐藏
-	        compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.1'
+	        //compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.1'
+            //添加header隐藏/显示方法
+            compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.2'
 	}
 	
 	
@@ -150,6 +152,7 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
 	
 #### 目前提供了下面这些方法操作adapter数据,具体实现可以在CommonAdapter中查看
 * 新增数据
+
         public void add(@NonNull T object)
         public void addAll(@NonNull Collection collection)
         public void addAll(@NonNull T… items)
@@ -157,22 +160,27 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
         public void insertAll(@NonNull Collection collection, int index)
 
 * 删除数据
+
         public void remove(int index)
         public boolean remove(@NonNull T object)
         public void clear()
 
 * 修改数据
+
         public void update(@NonNull List mDatas)
 
 * 查看数据
+
         public T getItem(int position)
         public int getPosition(T item)
         public List getData()
 
 * 排序
+
         public void sort(Comparator comparator)
 
 * 加载布局
+
         public View inflateView(@LayoutRes int resId, ViewGroup parent)
 
 #### adapter中ViewHolder需要继承BaseViewHolder 
