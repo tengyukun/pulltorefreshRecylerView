@@ -21,8 +21,8 @@ import org.xutils.x;
 
 public class ThreeFragment extends BaseFragment {
 
-    @ViewInject(R.id.erv_fragmentthree_content)
-    private PtrDefRecyclerView erv_fragmentthree_content;
+    @ViewInject(R.id.prv_fragmentthree_content)
+    private PtrDefRecyclerView prv_fragmentthree_content;
 
 
     private Handler handler = new Handler();
@@ -47,22 +47,22 @@ public class ThreeFragment extends BaseFragment {
 
         MaterialHeader materialHeader = new MaterialHeader(activity);
         materialHeader.setPadding(0, 40,0,40);
-        erv_fragmentthree_content.setHeaderView(materialHeader);
-        erv_fragmentthree_content.setPinContent(true);
-        erv_fragmentthree_content.setLayoutManager(new LinearLayoutManager(activity));
+        prv_fragmentthree_content.setHeaderView(materialHeader);
+        prv_fragmentthree_content.setPinContent(true);
+        prv_fragmentthree_content.setLayoutManager(new LinearLayoutManager(activity));
 
         mAdapter = new CustomAdapter(activity);
 
         for (int i = 0; i < 10; i++) {
             mAdapter.add("数据");
         }
-        erv_fragmentthree_content.setAdapter(mAdapter);
-        erv_fragmentthree_content.hideEmptyView();
+        prv_fragmentthree_content.setAdapter(mAdapter);
+        prv_fragmentthree_content.hideEmptyView();
 
 
-        erv_fragmentthree_content.setLastUpdateTimeRelateObject(activity);
+        prv_fragmentthree_content.setLastUpdateTimeRelateObject(activity);
 
-        erv_fragmentthree_content.setOnRefreshListener(new OnRefreshListener() {
+        prv_fragmentthree_content.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefreshListener() {
                 handler.postDelayed(new Runnable() {
@@ -72,10 +72,10 @@ public class ThreeFragment extends BaseFragment {
                         for (int i = 0; i < 10; i++) {
                             mAdapter.add("最新数据");
                         }
-                        erv_fragmentthree_content.setAdapter(mAdapter);
-                        erv_fragmentthree_content.refreshComplete();
-                        erv_fragmentthree_content.loadComplete();
-                        erv_fragmentthree_content.loading();
+                        prv_fragmentthree_content.setAdapter(mAdapter);
+                        prv_fragmentthree_content.refreshComplete();
+                        prv_fragmentthree_content.loadComplete();
+                        prv_fragmentthree_content.loading();
                         Log.e("onRefreshListener",mAdapter.getItemCount()+"");
                     }
                 },2000 );
@@ -84,7 +84,7 @@ public class ThreeFragment extends BaseFragment {
 
 
 
-        erv_fragmentthree_content.setOnLoadListener(new OnLoadListener() {
+        prv_fragmentthree_content.setOnLoadListener(new OnLoadListener() {
             @Override
             public void onLoadListener() {
                 Log.e("onLoadListener",mAdapter.getItemCount()+"");
@@ -93,9 +93,9 @@ public class ThreeFragment extends BaseFragment {
                     public void run() {
                         if (mAdapter.getItemCount() > 20 && !isFail) {
                             isFail = true;
-                            erv_fragmentthree_content.loadFail();
+                            prv_fragmentthree_content.loadFail();
                         } else if (mAdapter.getItemCount() > 30) {
-                            erv_fragmentthree_content.noMore();
+                            prv_fragmentthree_content.noMore();
                         } else {
                             for (int i = 0; i < 10; i++) {
                                 mAdapter.add("更多数据");

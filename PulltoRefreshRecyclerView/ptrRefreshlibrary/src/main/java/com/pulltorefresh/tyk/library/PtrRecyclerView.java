@@ -281,6 +281,21 @@ public class PtrRecyclerView extends FrameLayout {
     }
 
 
+    public void showHeaderView(){
+        View headerView = getPtrFrame().getHeaderView();
+        if (headerView!=null){
+            headerView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void hideHeaderView(){
+        View headerView = getPtrFrame().getHeaderView();
+        if (headerView!=null){
+            headerView.setVisibility(View.GONE);
+        }
+    }
+
+
     public void setFooterView(View footerView) {
         if (!(footerView instanceof PtrLoadUIHandle)) {
             throw new RuntimeException("footerView 必须实现PtrLoadUIHandler");

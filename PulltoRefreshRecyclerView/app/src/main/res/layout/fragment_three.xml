@@ -6,7 +6,7 @@
 
 
     <com.pulltorefresh.tyk.library.PtrDefRecyclerView
-        android:id="@+id/erv_fragmentthree_content"
+        android:id="@+id/prv_fragmentthree_content"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         app:emply_layout="@layout/erv_default_empty"
