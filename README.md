@@ -66,14 +66,14 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
 			maven { url 'https://jitpack.io' }
 		}
 	}
-#### Step 2. 在module中添加compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.2'	
+#### Step 2. 在module中添加compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.3'	
 	
 	dependencies {
 	        //compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.0'
 	        //更新解决当列表只有一页数据的时候，底部的 footer 加载中无法隐藏
 	        //compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.1'
-            //添加header隐藏/显示方法
-            compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.2'
+            //添加header隐藏/显示方法/移除
+            compile 'com.github.tengyukun:pulltorefreshRecylerView:v1.3'
 	}
 	
 	
