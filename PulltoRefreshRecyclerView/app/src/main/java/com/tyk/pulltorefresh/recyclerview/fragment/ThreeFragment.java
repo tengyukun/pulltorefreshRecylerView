@@ -59,7 +59,6 @@ public class ThreeFragment extends BaseFragment {
         prv_fragmentthree_content.setAdapter(mAdapter);
         prv_fragmentthree_content.hideEmptyView();
 
-
         prv_fragmentthree_content.setLastUpdateTimeRelateObject(activity);
 
         prv_fragmentthree_content.setOnRefreshListener(new OnRefreshListener() {
