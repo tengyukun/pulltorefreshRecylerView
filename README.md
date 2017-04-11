@@ -111,10 +111,16 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
 		prv_fragmentthree_content.hideEmptyView();
 		prv_fragmentthree_content.showEmptyView();
 		
-* （更新）隐藏/显示底部footer
+* （v1.1更新）隐藏/显示底部footer
 
-    		prv_fragmentthree_content.hideFooterView();
+    	prv_fragmentthree_content.hideFooterView();
 		prv_fragmentthree_content.showFooterView();
+        
+        
+ * （v1.2更新）隐藏/显示底部header
+
+    	prv_fragmentthree_content.hideHeaderView();
+		prv_fragmentthree_content.showHeaderView();
 		
 		
 
