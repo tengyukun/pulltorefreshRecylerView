@@ -19,7 +19,7 @@ https://juejin.im/entry/58d9cdf044d9040068813c2d/detail#comment
 
 
 
-### 更新：添加头部header隐藏/显示方法（具体在下文）
+### 更新：添加头部header隐藏/显示方法/移除（具体在下文）
 ---------------------------------------------------------------------------------------------------------------
 
 
@@ -117,10 +117,11 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
 		prv_fragmentthree_content.showFooterView();
         
         
- * （v1.2更新）隐藏/显示底部header
+ * （v1.2更新）隐藏/显示/移除底部header
 
     	prv_fragmentthree_content.hideHeaderView();
 		prv_fragmentthree_content.showHeaderView();
+        prv_fragmentthree_content.removeHeaderView();
 		
 		
 
