@@ -88,7 +88,7 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
 #### xml中配置示例
 
 	<com.pulltorefresh.tyk.library.PtrDefRecyclerView
-        	android:id="@+id/erv_fragmentthree_content"
+        	android:id="@+id/prv_fragmentthree_content"
         	android:layout_height="match_parent"
         	android:layout_width="match_parent"
         	app:emply_layout="@layout/erv_default_empty"
@@ -99,43 +99,43 @@ https://juejin.im/post/58d1035161ff4b00603ca9c4
 
 * 基本设置
 	
-		erv_fragmentthree_content.setAdapter(rvAdapter = new RvAdapter());//设置adapter
-		erv_fragmentthree_content.setLastUpdateTimeRelateObject(this);//传入参数类名作为记录刷新时间key
-		erv_fragmentthree_content.setOnRefreshListener(this);//设置刷新监听
-		erv_fragmentthree_content.setOnLoadListener(this);//设置加载更多监听
+		prv_fragmentthree_content.setAdapter(rvAdapter = new RvAdapter());//设置adapter
+		prv_fragmentthree_content.setLastUpdateTimeRelateObject(this);//传入参数类名作为记录刷新时间key
+		prv_fragmentthree_content.setOnRefreshListener(this);//设置刷新监听
+		prv_fragmentthree_content.setOnLoadListener(this);//设置加载更多监听
 	
 * 隐藏/显示空状态界面
 
-		erv_fragmentthree_content.hideEmptyView();
-		erv_fragmentthree_content.showEmptyView();
+		prv_fragmentthree_content.hideEmptyView();
+		prv_fragmentthree_content.showEmptyView();
 		
 * （更新）隐藏/显示底部footer
 
-    		erv_fragmentthree_content.hideFooterView();
-		erv_fragmentthree_content.showFooterView();
+    		prv_fragmentthree_content.hideFooterView();
+		prv_fragmentthree_content.showFooterView();
 		
 		
 
 * 刷新设置
 		
-		erv_fragmentthree_content.refreshComplete();//下拉刷新结束   
-		erv_fragmentthree_content.loadComplete();//上拉加载结束
-		erv_fragmentthree_content.loading();//上拉加载显示"加载中"		
-		erv_fragmentthree_content.loadFail();//上拉加载显示"加载失败，点击重试"
-		erv_fragmentthree_content.noMore();//上拉加载显示"暂无更多数据"
+		prv_fragmentthree_content.refreshComplete();//下拉刷新结束   
+		prv_fragmentthree_content.loadComplete();//上拉加载结束
+		prv_fragmentthree_content.loading();//上拉加载显示"加载中"		
+		prv_fragmentthree_content.loadFail();//上拉加载显示"加载失败，点击重试"
+		prv_fragmentthree_content.noMore();//上拉加载显示"暂无更多数据"
 		
 		
 		
 由于这里使用的PtrDefRecyclerView,头部就是默认经典样式所以需要调用,使用其他头部时不需要调用
 
-	erv_fragmentthree_content.setLastUpdateTimeRelateObject(this);//传入参数类名作为记录刷新时间key
+	prv_fragmentthree_content.setLastUpdateTimeRelateObject(this);//传入参数类名作为记录刷新时间key
 	
 使用MaterialHeader
 
 	MaterialHeader materialHeader = new MaterialHeader(activity);
         materialHeader.setPadding(0, 40,0,40);
-        erv_fragmentthree_content.setHeaderView(materialHeader);
-        erv_fragmentthree_content.setPinContent(true);
+        prv_fragmentthree_content.setHeaderView(materialHeader);
+        prv_fragmentthree_content.setPinContent(true);
 
 
 ### adapter代码配置
@@ -187,7 +187,7 @@ public View inflateView(@LayoutRes int resId, ViewGroup parent)
 			  return "吸附头部显示的文字";
 		      }
 	    }
-	  erv_fragmentthree_content.addItemDecoration(mItemDecoration);
+	  prv_fragmentthree_content.addItemDecoration(mItemDecoration);
 
 #### 这里StickItemDecoration提供了如下方法来定制吸附效果
 	//设置吸附条目高度
@@ -210,7 +210,7 @@ public View inflateView(@LayoutRes int resId, ViewGroup parent)
 * MaterialHeader
 * PtrClassicDefaultHeader
 * StoreHouseHeader
-一般情况下这些样式应该够了,如果有特殊需求可以自定义头部.然后erv.setHeaderView(view);
+一般情况下这些样式应该够了,如果有特殊需求可以自定义头部.然后prv.setHeaderView(view);
 
 底部的话目前我只实现了一个PtrDefaultFooter,自定义的话需要实现PtrLoadUIHandle接口.写法可以参考PtrDefaultFooter
 
